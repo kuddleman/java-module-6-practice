@@ -43,8 +43,8 @@ public class User {
     @Override
     public String toString() {
         String s = lastName + ", " + firstName;
-        s += "\n\teMail:" + email;
-        s += "\n\tPhone: " + phone;
+        s += "\t\teMail:" + email;
+        s += "\t\tPhone: " + phone;
         return s;
     }
 }
