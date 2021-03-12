@@ -10,7 +10,7 @@ public class InputOutputPractice {
         // read in from the file
         Scanner fileScan = new Scanner(new FileInputStream("input_oneperline.txt"));
 
-        // write to the file                                         // the "true" param will append text, instead of overriding
+        // write to the file                                         // the "true" param will append text, instead of overriding`
         PrintWriter out = new PrintWriter(new FileOutputStream("output_alloneline.txt", true));
 
         // use hasNext in the signature...not hasNextLine
