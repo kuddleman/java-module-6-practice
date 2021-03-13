@@ -9,15 +9,20 @@ public class ZipCodeProcessor {
         int invalidCodes = 0;
 
         while(validCodes < zipCodes.length) {
-            System.out.println("Enter a 5-digit zip code.");
+            try {
+                System.out.println("Enter a 5-digit zip code.");
 
-            String zipCodeString = scan.nextLine();
+                String zipCodeString = scan.nextLine();
 
-            if(zipCodeString.length() == 5) {
-                zipCodes[validCodes] = Integer.parseInt(zipCodeString);
-                validCodes ++;
-            } else {
-                System.out.println("Invalid length");
+                if (zipCodeString.length() == 5) {
+                    zipCodes[validCodes] = Integer.parseInt(zipCodeString);
+                    validCodes++;
+                } else {
+                    System.out.println("Invalid length");
+                    invalidCodes++;
+                }
+            } catch (NumberFormatException ex) {
+                System.out.println("Zip codes must only contain digits");
                 invalidCodes ++;
             }
         }
