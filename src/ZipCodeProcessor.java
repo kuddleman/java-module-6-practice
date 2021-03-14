@@ -1,4 +1,5 @@
 import java.util.Arrays;
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class ZipCodeProcessor {
@@ -18,13 +19,24 @@ public class ZipCodeProcessor {
                     zipCodes[validCodes] = Integer.parseInt(zipCodeString);
                     validCodes++;
                 } else {
-                    System.out.println("Invalid length");
-                    invalidCodes++;
+                    throw new IllegalArgumentException("Invalid zip code length");
+//                    System.out.println("Invalid length");
+//                    invalidCodes++;
                 }
+                /*
             } catch (NumberFormatException ex) {
                 System.out.println("Zip codes must only contain digits");
                 invalidCodes ++;
+            } catch (IllegalArgumentException ex) {
+                System.out.println(ex.getMessage());
+                invalidCodes ++;
             }
+            */
+            } catch (InputMismatchException | IllegalArgumentException ex) {
+                System.out.println("Invalid code entered");
+                invalidCodes ++;
+            }
+
         }
         System.out.println("You entered " + validCodes + " valid codes.");
         System.out.println("You entered " + invalidCodes + " invalid codes.");
